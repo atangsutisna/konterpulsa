@@ -25,6 +25,12 @@ $('document').ready(function(){
                 }
             },
             { 
+                "data": "original_price",
+                "render": function(data, type, row, meta) {
+                    return accounting.formatMoney(data);
+                }
+            },
+            { 
                 "data": "price",
                 "render": function(data, type, row, meta) {
                     return accounting.formatMoney(data);

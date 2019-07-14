@@ -20,6 +20,7 @@
                                 <th>Last update</th>
                                 <th>Operator Name</th>
                                 <th>Nominal</th>
+                                <th>Original Price</th>
                                 <th>Price</th>
                                 <th>#</th>
                             </thead>
