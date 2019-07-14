@@ -19,21 +19,6 @@
           </a>
         </li>
         <li>
-            <a href="<?= site_url('user') ?>">
-                <i class="fa fa-user"></i><span>User</span>
-            </a>
-        </li>
-        <li>
-            <a href="<?= site_url('member') ?>">
-                <i class="fa fa-user"></i><span>Anggota</span>
-            </a>
-        </li>
-        <li>
-            <a href="<?= site_url('book') ?>">
-                <i class="fa fa-sticky-note-o"></i><span>Buku</span>
-            </a>
-        </li>
-        <li>
             <a href="<?= site_url('transaction') ?>">
                 <i class="fa fa-sticky-note-o"></i><span>Transaksi</span>
             </a>
