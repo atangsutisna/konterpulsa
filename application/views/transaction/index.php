@@ -13,13 +13,13 @@
             <?= show_bootstrap_alert() ?>
             <div class="box">
                 <div class="box-body">
-                    <form class="form-horizontal" id="form_filter">
+                    <form class="form-horizontal" id="form_transaction">
                         <div class="form-group">
                             <label class="col-3 col-sm-3 col-lg-3 control-label">Phone Number</label>
                             <div class="col-4 col-sm-4 col-lg-4">
                                 <div class="input-group">
-                                    <input type="text" name="phone_number" class="form-control"/>
-                                    <div class="input-group-addon">Axis</div>
+                                    <input type="text" name="phone_number" class="form-control" v-model="phone_number"/>
+                                    <div class="input-group-addon" v-if="operator_name !== null">{{operator_name}}</div>
                                 </div>
                             </div>
                         </div>
