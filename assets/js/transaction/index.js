@@ -41,36 +41,4 @@ $('document').ready(function(){
         ]
     }); 
 
-    $('#table_book tbody').on('click', '.btn-delete', function(){
-        var conf = confirm('are you sure ?');
-        if (conf !== false) {
-            var val = $(this).data('id');
-            $.ajax({
-                url: app_config.api_uri + "/user",
-                type: "DELETE",
-                dataType: "json", // expected format for response              
-                jsonp: false,
-                data: {uid: val},
-                beforeSend: function() {
-                },
-                complete: function() {
-                },
-                success: function(data) {
-                    table_book.draw();
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    if (jqXHR.status == 400) {
-                        var response = JSON.parse(jqXHR.responseText);
-                        alert('Error: '+ response.message);
-                    } 
-
-                    if (jqXHR.status == 500) {
-                        alert('Internal server error');
-                    }
-                },
-            });
-        } 
-
-    });
-
 });
