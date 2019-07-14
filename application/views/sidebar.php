@@ -19,6 +19,16 @@
           </a>
         </li>
         <li>
+          <a href="<?= site_url('operator') ?>">
+            <i class="fa fa-sticky-note-o"></i><span>Operator</span>
+          </a>
+        </li>
+        <li>
+          <a href="<?= site_url('operator') ?>">
+            <i class="fa fa-sticky-note-o"></i><span>Pulsa</span>
+          </a>
+        </li>
+        <li>
             <a href="<?= site_url('transaction') ?>">
                 <i class="fa fa-sticky-note-o"></i><span>Transaksi</span>
             </a>
