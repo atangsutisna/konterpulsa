@@ -56,9 +56,9 @@ class Transaction_model extends MY_Model
         return $query->row();
     }
 
-    public function modify($id, $book) 
+    public function insert($transaction) 
     {
-        $this->db->where(self::PRIMARY_KEY, $id);
-        $this->db->update($this->table_name, $book);
+        $this->db->insert($this->table_name, $transaction);
+        return $this->db->insert_id();
     }
 }

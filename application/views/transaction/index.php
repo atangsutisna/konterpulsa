@@ -13,7 +13,7 @@
             <?= show_bootstrap_alert() ?>
             <div class="box">
                 <div class="box-body">
-                    <form class="form-horizontal" id="form_transaction">
+                    <form class="form-horizontal" id="form_transaction" v-on:submit.prevent="process">
                         <div class="form-group">
                             <label class="col-3 col-sm-3 col-lg-3 control-label">Nomor Hp</label>
                             <div class="col-4 col-sm-4 col-lg-4">
@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-4 col-sm-4 col-lg-4">
-                                <button type="submit" class="btn btn-success" id="btn-reset">Process</button>
+                                <button type="submit" class="btn btn-success" id="btn-process">Proses</button>
                             </div>
                         </div>
                     </form>

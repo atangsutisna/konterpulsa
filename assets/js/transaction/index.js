@@ -1,5 +1,5 @@
 $('document').ready(function(){  
-    var table_book = $('#table_transaction').DataTable({  
+    var table_transaction = $('#table_transaction').DataTable({  
         "searching": true,
         "order": [[0, 'asc']],
         "processing": true,
@@ -82,6 +82,61 @@ var form_transaction = new Vue({
                 app.operator_name = null;
                 app.nominals = [];
             }
+        }
+    },
+    methods: {
+        process: function(){
+            app = this;
+            if (app.phone_number.length <= 10) {
+                alert('Nomor telepon tidak lengkap');
+                return false;
+            }
+
+            if (app.credit_nominal_id == null || app.credit_nominal_id == undefined) {
+                alert('Silahkan pilih nominal');
+                return false;
+            }
+
+            var data = {
+                'operator_id': app.operator_id,
+                'nominal_id': app.credit_nominal_id,
+                'phone_number': app.phone_number
+            }
+            console.info(data);
+
+            $.ajax({
+                url: app_config.api_uri + "/transaction",
+                type: "POST",
+                dataType: "json", // expected format for response              
+                jsonp: false,
+                data: data,
+                beforeSend: function() {
+                    $('#btn-process').text('Tunggu..');
+                    $('#btn-process').attr('disabled', 'disabled');
+                },
+                complete: function() {
+                    $('#btn-process').text('Proses');
+                    $('#btn-process').removeAttr('disabled', 'disabled');
+                },
+                success: function(data) {
+                    alert('Data transaksi sudah disimpa');
+                    table_transaction.draw();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#btn-process').removeAttr('disabled', 'disabled');
+
+                    if (jqXHR.status == 400) {
+                        var response = JSON.parse(jqXHR.responseText);
+                        console.info(response);
+                        alert(`Error: Transaki gagal. ${response.message}`);
+                    } 
+
+                    if (jqXHR.status == 500) {
+                        alert('Internal server error');
+                    }
+                },
+            });            
+
         }
     }
 });
