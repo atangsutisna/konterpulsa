@@ -24,7 +24,7 @@
           </a>
         </li>
         <li>
-          <a href="<?= site_url('operator') ?>">
+          <a href="<?= site_url('credit') ?>">
             <i class="fa fa-sticky-note-o"></i><span>Pulsa</span>
           </a>
         </li>
