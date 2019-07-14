@@ -20,6 +20,10 @@ $('document').ready(function(){
             },
             { 
                 "orderable": false,
+                "data": "prefixs",
+            },
+            { 
+                "orderable": false,
                 "data" : "id",
                 "render": function(data, type, row, meta) {
                     var nameHtml = `[

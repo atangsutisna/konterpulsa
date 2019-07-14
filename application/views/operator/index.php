@@ -19,6 +19,7 @@
                             <thead>
                                 <th>Last update</th>
                                 <th>Name</th>
+                                <th>Prefix</th>
                                 <th>#</th>
                             </thead>
                             <tbody>
