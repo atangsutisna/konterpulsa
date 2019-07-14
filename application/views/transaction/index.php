@@ -25,14 +25,25 @@
                         </div>
                         <div class="form-group">
                             <label class="col-3 col-sm-3 col-lg-3 control-label">Nominal</label>
-                            <div class="col-3 col-sm-3 col-lg-3">
-
+                            <div class="col-8 col-sm-8 col-lg-8">
+                                <label>
+                                    <input type="radio" name="credit_nominal" selected/> Rp. 5000
+                                </label>
+                                <label>
+                                    <input type="radio" name="credit_nominal"/> Rp. 10000
+                                </label>
+                                <label>                                    
+                                    <input type="radio" name="credit_nominal"/> Rp. 15000
+                                </label>
+                                <label>                                    
+                                    <input type="radio" name="credit_nominal"/> Rp. 25000
+                                </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-3 col-sm-3 col-lg-3 control-label">Price</label>
                             <div class="col-6 col-sm-6 col-lg-6">
-
+                                <p class="form-control-static">Rp. 6000</p>
                             </div>
                         </div>
                         <div class="form-group">
