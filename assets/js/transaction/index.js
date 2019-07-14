@@ -57,8 +57,9 @@ var form_transaction = new Vue({
         },
         phone_number: function(val) {
             app = this;
-            if (val !== undefined && val !== '' && val.length == 4) {
-                $.get(app_config.api_uri + "/operator_prefix?prefix="+ val, function(data){
+            if (val !== undefined && val !== '' && val.length >= 4 && val.length <= 12) {
+                var prefix = val.substring(0,4);
+                $.get(app_config.api_uri + "/operator_prefix?prefix="+ prefix, function(data){
                     if (data.operator != null) {
                         app.operator_id = data.operator.id;
                         app.operator_name = data.operator.name;
@@ -80,6 +81,7 @@ var form_transaction = new Vue({
             } else if (val !== undefined && val !== '' && val.length < 4) {
                 app.operator_id = null;
                 app.operator_name = null;
+                app.price = 0;
                 app.nominals = [];
             }
         }
