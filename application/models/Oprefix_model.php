@@ -13,14 +13,14 @@ class Oprefix_model extends MY_Model
 
     public function find_by_prefix($prefix)
     {
-        $this->db->select('operator_prefixs.prefix, operators.name as operator_name');
+        $this->db->select('operator_prefixs.prefix, operator_prefixs.id, operators.name');
         $this->db->from('operator_prefixs');
         $this->db->join('operators', 'operator_prefixs.operator_id = operators.id');
         $this->db->like('operator_prefixs.prefix', $prefix);
 
         $result = $this->db->get();
 
-        return $result->row();
+        return $result->row_array();
     }
 
 }

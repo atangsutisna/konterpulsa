@@ -60,4 +60,14 @@ class Credit_model extends MY_Model
         $this->db->where(self::PRIMARY_KEY, $id);
         $this->db->update($this->table_name, $book);
     }
+
+    public function find_by_operator_id($operator_id)
+    {
+        $this->db->select('id, nominal, original_price, price');
+        $this->db->where('operator_id', $operator_id);
+        $query = $this->db->get($this->table_name);
+
+        return $query->result();
+    }
+
 }

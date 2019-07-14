@@ -52,8 +52,8 @@ var form_transaction = new Vue({
             app = this;
             if (val !== undefined && val !== '' && val.length === 4) {
                 $.get(app_config.api_uri + "/operator_prefix?prefix="+ val, function(data){
-                    if (data.operator_prefix != null) {
-                        app.operator_name = data.operator_prefix.operator_name;
+                    if (data.operator != null) {
+                        app.operator_name = data.operator.name;
                     } else {
                         console.info("unknown operator");
                         app.operator_name = null;
