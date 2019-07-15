@@ -48,4 +48,21 @@ class Operator extends Admin_Controller
         }
     }
 
+    public function view($id)
+    {
+        $this->load->model('Operator_model', 'operator');
+        $operator = $this->operator->find_one($id);
+        if ($operator == NULL) {
+            show_404();
+        }
+        
+        $params = array(
+            'form_action' => 'book/do_update',
+            'operator' => $operator,
+        );
+        
+        $this->load->template(self::DIR_VIEW. '/form', $params);
+    }
+
+
 }

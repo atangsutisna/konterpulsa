@@ -27,7 +27,7 @@ $('document').ready(function(){
                 "data" : "id",
                 "render": function(data, type, row, meta) {
                     var nameHtml = `[
-                        <a  href="${app_config.base_uri}/book/view/${data}"
+                        <a  href="${app_config.base_uri}/operator/view/${data}"
                             class="btn-edit" style=\"cursor:pointer\">Edit</a> ]`;
                     return nameHtml;
                 } 
