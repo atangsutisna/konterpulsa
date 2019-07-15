@@ -57,12 +57,42 @@ class Operator extends Admin_Controller
         }
         
         $params = array(
-            'form_action' => 'book/do_update',
+            'form_action' => site_url('operator/do_update'),
             'operator' => $operator,
         );
-        
+
         $this->load->template(self::DIR_VIEW. '/form', $params);
     }
 
+    public function do_update()
+    {
+        $id = $this->input->post('id');
+        if (!isset($id)) {
+            $this->session->set_flashdata('danger', 'Please select one data for update processing');
+            redirect('operator');
+        }
 
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+        $this->form_validation->set_rules('name', 'Nama', 'required', 
+            array('required' => 'Nama harus diisi'));
+        $this->form_validation->set_rules('prefix', 'Prefix', 'required', 
+            array('required' => 'Prefix harus diisi'));
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->view($id);
+        } else {
+            $modified_operator = [
+                'name' => $this->input->post('name'),
+                'prefixs' => $this->input->post('prefix'),
+                'modification_time' => date('Y-m-d H:i:s')
+            ];
+
+            $this->load->model('Operator_model', 'operator');
+            $this->operator->modify($id, $modified_operator);            
+            $this->session->set_flashdata('info', '1 operator telah berhasil diupdate');
+            redirect('operator');
+        }        
+    }
 }

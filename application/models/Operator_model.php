@@ -50,9 +50,9 @@ class Operator_model extends MY_Model
         return $query->row();
     }
 
-    public function modify($id, $book) 
+    public function modify($id, $operator) 
     {
         $this->db->where(self::PRIMARY_KEY, $id);
-        $this->db->update($this->table_name, $book);
+        $this->db->update($this->table_name, $operator);
     }
 }

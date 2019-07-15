@@ -18,6 +18,7 @@
                 </div>
                 <div class="box-body">
                     <form role="form" method="post" action="<?= $form_action ?>" class="form-horizontal"> 
+                        <?= form_hidden('id', isset($operator) ? $operator->id : NULL) ?>
                         <div class="form-group">
                             <label class="col-lg-3 col-sm-3 control-label">Nama</label>
                             <div class="col-lg-4 col-sm-4">
@@ -30,7 +31,7 @@
                             <label class="col-lg-3 col-sm-3 control-label">Prefix</label>
                             <div class="col-lg-5 col-sm-5">
                                 <input type="text" name="prefix" 
-                                    class="form-control" value="<?= set_value('name', isset($operator) ? $operator->prefixs : '') ?>"/>
+                                    class="form-control" value="<?= set_value('prefix', isset($operator) ? $operator->prefixs : '') ?>"/>
                                 <?= form_error('prefix') ?>
                             </div>
                         </div>
