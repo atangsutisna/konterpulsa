@@ -18,7 +18,8 @@
                             <label class="col-3 col-sm-3 col-lg-3 control-label">Nomor Hp</label>
                             <div class="col-4 col-sm-4 col-lg-4">
                                 <div class="input-group">
-                                    <input type="text" name="phone_number" class="form-control" v-model="phone_number" maxlength="12"/>
+                                    <input type="text" name="phone_number" class="form-control" 
+                                        v-model="phone_number" maxlength="12" v-on:blur="do_reset"/>
                                     <div class="input-group-addon" v-if="operator_name !== null">{{operator_name}}</div>
                                 </div>
                             </div>

@@ -87,6 +87,16 @@ var form_transaction = new Vue({
         }
     },
     methods: {
+        do_reset: function() {
+            app = this;
+            console.info('hello');
+            if ($.isEmptyObject(app.phone_number) ) {
+                app.operator_id = null;
+                app.operator_name = null;
+                app.price = 0;
+                app.nominals = [];    
+            }
+        },
         process: function(){
             app = this;
             if (app.phone_number.length <= 10) {
