@@ -42,7 +42,13 @@ class Operator extends Admin_Controller
             ];
 
             $this->load->model('Operator_model', 'operator');
-            $this->operator->insert($new_operator);            
+            $operator_id = $this->operator->insert($new_operator);    
+            
+            $this->load->library('Prefixparser', 'prefixparser');
+            $prefixs = $this->prefixparser->parse($this->input->post('prefix'));
+            $this->load->model('Oprefix_model', 'oprefix');
+            $this->oprefix->insert_all($operator_id, $prefixs);
+
             $this->session->set_flashdata('info', '1 operator telah berhasil ditambahkan');
             redirect('operator');
         }
