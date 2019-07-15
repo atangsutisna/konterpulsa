@@ -27,8 +27,10 @@ class Operator extends Admin_Controller
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
-        $this->form_validation->set_rules('name', 'Nama', 'required');
-        $this->form_validation->set_rules('prefix', 'Prefix', 'required');
+        $this->form_validation->set_rules('name', 'Nama', 'required', 
+            array('required' => 'Nama harus diisi'));
+        $this->form_validation->set_rules('prefix', 'Prefix', 'required', 
+            array('required' => 'Prefix harus diisi'));
         if ($this->form_validation->run() == FALSE) {
             $this->reg_form();
         } else {
