@@ -96,7 +96,13 @@ class Operator extends Admin_Controller
             ];
 
             $this->load->model('Operator_model', 'operator');
-            $this->operator->modify($id, $modified_operator);            
+            $this->operator->modify($id, $modified_operator);    
+            
+            $this->load->library('Prefixparser', 'prefixparser');
+            $prefixs = $this->prefixparser->parse($this->input->post('prefix'));
+            $this->load->model('Oprefix_model', 'oprefix');
+            $this->oprefix->update_all($id, $prefixs);
+            
             $this->session->set_flashdata('info', '1 operator telah berhasil diupdate');
             redirect('operator');
         }        
