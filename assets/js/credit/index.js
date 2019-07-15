@@ -41,8 +41,8 @@ $('document').ready(function(){
                 "data" : "id",
                 "render": function(data, type, row, meta) {
                     var nameHtml = `[
-                        <a  href="${app_config.base_uri}/book/view/${data}"
-                            class="btn-edit" style=\"cursor:pointer\">Edit</a> ]`;
+                        <a  href="${app_config.base_uri}/credit/view/${data}"
+                            class="btn-edit" style=\"cursor:pointer\" onclick=\"alert('not implemented yet'); return false;\">Edit</a> ]`;
                     return nameHtml;
                 } 
             }
