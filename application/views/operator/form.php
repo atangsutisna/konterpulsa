@@ -3,7 +3,8 @@
         Operator
     </h1>
     <ol class="breadcrumb">
-        <li><a href="<?= site_url('dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?= site_url('home') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?= site_url('operator') ?>">Operator</a></li>
         <li class="active">Tambah Operator</li>
     </ol>
 </section>
