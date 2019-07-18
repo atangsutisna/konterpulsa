@@ -8,7 +8,11 @@ class Home extends Admin_Controller
 
 	public function index()
 	{
-        $params = [];
+        $this->load->model('Restcredit_model', 'restcredit');
+        $balance = $this->restcredit->check_balance();
+        $params = [
+            'balance' => $balance
+        ];
         $this->load->template(self::DIR_VIEW. '/index', $params);
     }
 }
