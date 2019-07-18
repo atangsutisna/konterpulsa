@@ -64,22 +64,6 @@ if (! function_exists('show_boostrap_alert'))
     
 }
 
-if (! function_exists('to_map')) 
-{
-    /**
-     * @param string $danger_message
-     */
-    function to_map($raw_array, $key, $val)
-    {
-        $map = [NULL => '--select one--'];
-        foreach ($raw_array as $raw) {
-            $map[$raw->$key] = $raw->$val;
-        }
-
-        return $map;
-    }
-    
-}
 
 if (! function_exists('format_date')) 
 {
@@ -99,26 +83,6 @@ if (! function_exists('currency_format'))
     {
 	   return $currency . number_format($number,2,',','.');       
     }
-}
-
-if (! function_exists('to_key_value')) 
-{
-    /**
-     * @param string $danger_message
-     */
-    function to_key_value($raw_array, $key, $val)
-    {
-        $arr_map = [];
-        foreach ($raw_array as $raw) {
-            array_push($arr_map, [
-                'id' => $raw->$key,
-                'value' => $raw->$val,
-            ]);
-        }
-
-        return $arr_map;
-    }
-    
 }
 
 if (! function_exists('get_logged_fullname')) 
@@ -166,36 +130,3 @@ if (! function_exists('is_admin'))
     }
     
 }
-
-/**
- * @author Atang Sutisna <atang.sutisna.87@gmail.com>
-*/
-
-if (! function_exists('format_rupiah')) 
-{
-    /**
-     * @param string $warn_message
-     */
-    function format_rupiah($price)
-    {
-        $money = number_format($price,'0',',','.');
-        return "Rp. {$money}";
-    }    
-}
-
-if (! function_exists('format_date_to')) 
-{
-    /**
-     * 
-     * FUNGSI TERBILANG OLEH : MALASNGODING.COM
-     * WEBSITE : WWW.MALASNGODING.COM
-     * AUTHOR : https://www.malasngoding.com/author/admin    
-     */
-    function format_date_to($input_date, $format = "d F Y") 
-    {
-        $date = date_create($input_date);
-        return date_format($date, $format); 
-    }
-    
-}
-
