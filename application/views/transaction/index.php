@@ -20,6 +20,9 @@
                                 <div class="input-group">
                                     <input type="text" name="phone_number" class="form-control" 
                                         v-model="phone_number" maxlength="12" v-on:blur="do_reset"/>
+                                    <div class="input-group-addon" id="spinner" style="display:none;">
+                                        <i class="fa fa-spinner" aria-hidden="true"></i>
+                                    </div>                                    
                                     <div class="input-group-addon" v-if="operator_name !== null">{{operator_name}}</div>
                                 </div>
                             </div>

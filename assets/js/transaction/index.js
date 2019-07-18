@@ -125,18 +125,24 @@ var form_transaction = new Vue({
                 beforeSend: function() {
                     $('#btn-process').text('Tunggu..');
                     $('#btn-process').attr('disabled', 'disabled');
+
+                    $('#spinner').show();
                 },
                 complete: function() {
                     $('#btn-process').text('Proses');
                     $('#btn-process').removeAttr('disabled', 'disabled');
+
+                    $('#spinner').hide();
                 },
                 success: function(data) {
                     alert('Data transaksi sudah disimpa');
+                    $('#spinner').hide();
                     table_transaction.draw();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     $('#btn-process').removeAttr('disabled', 'disabled');
-
+                    $('#spinner').hide();
+                    
                     if (jqXHR.status == 400) {
                         var response = JSON.parse(jqXHR.responseText);
                         console.info(response);
